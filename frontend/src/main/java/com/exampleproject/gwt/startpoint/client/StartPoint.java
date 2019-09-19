@@ -31,31 +31,10 @@ public class StartPoint implements EntryPoint {
 
         Defaults.setServiceRoot(GWT.getHostPageBaseURL() + "backend");
 
-        Button checkServer = new Button("Check Server");
-        checkServer.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                client.gett(new MethodCallback<String>() {
-                    @Override
-                    public void onFailure(Method method, Throwable exception) {
-                        // TODO Auto-generated method stub
-                        Window.alert(exception.toString() + "\n" + exception.getMessage());
-                    }
-
-                    @Override
-                    public void onSuccess(Method method, String response) {
-                        // TODO Auto-generated method stub
-                        Window.alert(response);
-                    }
-                });
-            }
-        });
-        RootPanel.get().add(checkServer);
-
         Button send = new Button("Send");
         send.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
-                client.get(new MethodCallback<String>() {
+                client.get(new MethodCallback<TestDto>() {
                     @Override
                     public void onFailure(Method method, Throwable exception) {
                         // TODO Auto-generated method stub
@@ -63,9 +42,9 @@ public class StartPoint implements EntryPoint {
                     }
 
                     @Override
-                    public void onSuccess(Method method, String response) {
+                    public void onSuccess(Method method, TestDto response) {
                         // TODO Auto-generated method stub
-                        Window.alert(response);
+                        Window.alert(response.getMessage());
                     }
 
                 });

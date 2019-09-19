@@ -25,9 +25,11 @@
   <properties>
     <gwt.version>2.8.2</gwt.version>
     <jdk.version>1.8</jdk.version>
-    <springframework.version>5.1.2.RELEASE</springframework.version>
+    <springframework.version>5.1.9.RELEASE</springframework.version>
     <jackson.library>2.9.7</jackson.library>
     <javax.version>8.0</javax.version>
+    <springbootmavenplugin.version>2.1.8.RELEASE</springbootmavenplugin.version>
+    <mavencompilerplugin.version>3.8.1</mavencompilerplugin.version>
   </properties>
 </project>
   <!--Created by InsideWorld-->
