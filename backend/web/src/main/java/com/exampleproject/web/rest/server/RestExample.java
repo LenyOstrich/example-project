@@ -1,6 +1,7 @@
 package com.exampleproject.web.rest.server;
 
-import com.exampleproject.engine.DataBaseTest;
+import com.exampleproject.database.entities.Organization;
+import com.exampleproject.engine.services.OrganizationService;
 import com.exampleproject.model.shared.TestDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,16 +10,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class RestExample {
 
     private final ApplicationContext applicationContext;
-    private final DataBaseTest dataBaseTest;
+    private final OrganizationService organizationService;
 
     @Autowired
-    public RestExample(ApplicationContext applicationContext, DataBaseTest dataBaseTest) {
+    public RestExample(ApplicationContext applicationContext, OrganizationService organizationService) {
         this.applicationContext = applicationContext;
-        this.dataBaseTest = dataBaseTest;
+        this.organizationService = organizationService;
     }
 
     @RequestMapping("/test")
@@ -31,7 +34,7 @@ public class RestExample {
     @RequestMapping("/testDb")
     public boolean testDB() {
         try {
-            dataBaseTest.tryIt();
+            List<Organization> list = organizationService.getAll();
         } catch (Exception ex) {
             return false;
         }

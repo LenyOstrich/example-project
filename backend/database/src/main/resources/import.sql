@@ -1,0 +1,1 @@
+insert into Organization (id, name) values (1, 'Visitech');
