@@ -9,22 +9,24 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "organization")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Organization {
+public class Position {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "organization_Sequence")
-    @SequenceGenerator(name = "organization_Sequence", sequenceName = "ORGANIZATION_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "position_sequence")
+    @SequenceGenerator(name = "position_sequence", sequenceName = "POSITION_SEQ")
     private Long id;
 
     @Column
     private String name;
 
+    @Column
+    private int salary;
+
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
-            mappedBy = "organization")
+            mappedBy = "position")
     @JsonManagedReference
-    private List<Department> departments;
+    private List<Employee> employees;
 }

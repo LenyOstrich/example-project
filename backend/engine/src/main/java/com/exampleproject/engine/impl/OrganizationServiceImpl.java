@@ -19,4 +19,19 @@ public class OrganizationServiceImpl implements OrganizationService {
     public List<Organization> getAll() {
         return (List<Organization>) organizationRepository.findAll();
     }
+
+    @Override
+    public Organization save(Organization org) {
+        return organizationRepository.save(org);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        organizationRepository.deleteById(id);
+    }
+
+    @Override
+    public Organization get(Long id) {
+        return organizationRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
 }
