@@ -24,12 +24,12 @@ public class Department {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "organization_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value = "departments")
     private Organization organization;
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             mappedBy = "department")
-    @JsonManagedReference
+    @JsonManagedReference(value = "employees")
     private List<Employee> employees;
 }

@@ -5,6 +5,8 @@
     <inherits name='com.google.gwt.user.User'/>
     <inherits name="org.fusesource.restygwt.RestyGWT"/>
     <inherits name="com.exampleproject.model.Model"/>
+    <inherits name="com.google.gwt.logging.Logging"/>
+    <inherits name = 'com.google.gwt.user.theme.clean.Clean'/>
     <!-- Specify the app entry point class.                   -->
     <entry-point class='com.exampleproject.gwt.startpoint.client.StartPoint'/>
 </module>

@@ -25,6 +25,6 @@ public class Organization {
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             mappedBy = "organization")
-    @JsonManagedReference
+    @JsonManagedReference(value = "departments")
     private List<Department> departments;
 }

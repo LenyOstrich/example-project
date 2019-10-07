@@ -27,8 +27,8 @@ public class OrganizationController {
     }
 
     @PostMapping("/delete")
-    public void delete(@RequestBody @NonNull Long id){
-        organizationService.deleteById(id);
+    public void delete(@RequestBody @NonNull Organization org){
+        organizationService.deleteById(org.getId());
     }
 
     @GetMapping("/get/{id}")
